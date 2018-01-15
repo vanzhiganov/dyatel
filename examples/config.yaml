@@ -1,0 +1,15 @@
+---
+- task:
+  - check:
+    name: prodtest
+    type: http
+    url: https://microservice.net/api/1.1/
+    method: get
+    pause: 5
+    expectation:
+      status: 200
+    exception:
+      count: 3
+    action:
+      command: /usr/bin/supervisorctl restart app
+      pause: 30

@@ -1,0 +1,15 @@
+[Unit]
+Description=Simplified simple zebra service
+After=syslog.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/usr/local
+ExecStart=/usr/local/bin/dyatel.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
